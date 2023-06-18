@@ -59,7 +59,9 @@ const Drone = () => {
     setStartLongitude(0);
     setEndtLongitude(0);
     setTime(0);
+    setPath([]);
   };
+
   function getIntermediateCoordinates(
     startLat,
     startLng,
@@ -85,7 +87,6 @@ const Drone = () => {
         setPath((prev) => [...prev, paths[idx]]);
         setIdx((prev) => prev + 1);
       }
-      console.log(idx);
     }, 1500);
 
     return () => {
@@ -181,8 +182,8 @@ const Drone = () => {
             </label>
             <input
               type="number"
-              id="time"
               placeholder="Enter time"
+              value={time}
               onChange={handleTimeChange}
               className="shadow appearance-none border rounded w-[50%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
